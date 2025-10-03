@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event-Listener-Practice</title>
+  <script src="event.js" defer></script>
+</head>
+<body>
+  <!-- <button onclick="alert('Hello World!')">Click Me</button> -->
+
+  <!-- the HTML file -->
+  <!-- <button id="btn">Click Me</button> -->
+
+  <!-- the HTML file -->
+  <!-- <button id="btn">Click Me Too</button> -->
+  
+  <!-- the HTML file -->
+  <!-- METHOD 1 -->
+  <!-- <button onclick="alertFunction()">CLICK ME BABY</button> -->
+
+  <!-- the HTML file -->
+  <!-- METHODS 2 & 3 -->
+  <!-- <button id="btn">CLICK ME BABY</button> -->
+     <!-- The original inline onclick is removed to avoid alerts/blocking -->
+  <button id="inlineButton">Click Me (Inline)</button>
+
+  <hr>
+
+  <!-- Best Practice: Using an External Event Listener -->
+  <button id="cleanButton">Click Me (Inspect Event)</button>
+
+  <div id="container">
+    <button id="one">Click Me</button>
+    <button id="two">Click Me</button>
+    <button id="three">Click Me</button>
+  </div>
+
+  <script>
+    // 1. Get a reference to the button with the ID 'cleanButton'
+    const button = document.getElementById('cleanButton');
+
+    // 2. Attach the new event listener
+    button.addEventListener("click", function (e) {
+      console.log("--- Click Event Fired ---");
+      console.log(e); // This logs the entire MouseEvent object
+      console.log("Target Element:", e.currentTarget);
+      console.log("X Position:", e.clientX);
+      e.target.style.background = "blue";
+    });
+
+    // We can still use the inline-style button for the older method if needed
+    document.getElementById('inlineButton').onclick = function() {
+        console.log("Inline button clicked, check console!");
+    };
+
+    // buttons is a node list. It looks and acts much like an array.
+    const buttons = document.querySelectorAll("button");
+
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
+      // and for each one we add a 'click' listener
+      button.addEventListener("click", () => {
+        alert(button.id);
+      });
+    });
+  </script>
+
+</body>
+</html>
