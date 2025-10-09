@@ -1,24 +1,32 @@
 // your JavaScript file
 const container = document.querySelector("#container");
 
-const p1 = document.createElement("p");
-p1.textContent = "Hey I'm red!";
-p1.style.color = "red";
-container.appendChild(p1);
+const content = document.createElement("div");
+content.classList.add("content");
+content.textContent = "This is the glorious text-content!";
 
-const h3 = document.createElement("h3");
-h3.textContent = "I'm a blue h3!";
-h3.style.color = "blue";
-container.appendChild(h3);
+container.appendChild(content);
 
-const div = document.createElement("div");
-div.style.cssText = "border: 1px solid black; background-color: pink";
+const paraRed = document.createElement("p");
+paraRed.textContent = "Hey! I'm red!";
+paraRed.style.color = "red";
+container.appendChild(paraRed);
+
+const h3Blue = document.createElement("h3");
+h3Blue.textContent = "Hey! I'm a blue h3!";
+h3Blue.style.color = "blue";
+container.appendChild(h3Blue);
+
+const newContent = document.createElement("div");
+newContent.classList.add("newContent");
+newContent.style.cssText = "border: 1px solid black; background: pink";
+
 const h1 = document.createElement("h1");
 h1.textContent = "I'm in a div";
-const p2 = document.createElement("p");
-p2.textContent = "ME TOO!";
+newContent.appendChild(h1);
 
-div.appendChild(h1);
-div.appendChild(p2);
-container.appendChild(div);
+const p1 = document.createElement("p");
+p1.textContent = "ME TOO!";
+newContent.appendChild(p1);
 
+container.appendChild(newContent);
