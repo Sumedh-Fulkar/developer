@@ -1,30 +1,25 @@
-
+// // METHOD 2 - problem -> DOM element can have only one onclick property
 // const btn = document.querySelector("#btn");
-// btn.onclick = () => alert("Hello World!");
+// btn.onclick = () => alert("Hello World");
 
-// const btn = document.querySelector("#btn");
-// btn.addEventListener("click", () => {
+// // METHOD 3 - no problem -> allows multiple eventListeners
+// const btn3 = document.querySelector("#btn3");
+// btn3.addEventListener("click", () => {
 //   alert("Hello World!");
 // });
 
-// the JavaScript file
-// METHOD 1
-// function alertFunction() {
-//   alert("YAY! YOU DID IT!");
-// }
+// ABOVE METHODS ARE RIGHT
+// NOW USING FUNCTION
 
-// the JavaScript file
-// METHODS 2 & 3
-// function alertFunction() {
-//   alert("YAY! YOU DID IT!");
-// }
-// const btn = document.querySelector("#btn");
+function alertFunction () {
+  alert("HELLLLOOOO");
+}
 
-// METHOD 2
+// METHOD 2 AND 3
+const btn = document.querySelector("#btn");
+
+// method2
 // btn.onclick = alertFunction;
 
-// METHOD 3
-// btn.addEventListener("click", alertFunction);
-
-
-
+// method3
+btn.addEventListener("click", alertFunction);
