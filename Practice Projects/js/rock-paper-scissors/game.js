@@ -61,11 +61,14 @@ function playRound(humanChoice, computerChoice) {
                       `humanScore : ${humanScore} ############# computerScore : ${computerScore}`;
   if (humanScore === 5) {
     result.textContent = result.textContent + "\nYOU WON";
+    humanScore = 0;
+    computerScore = 0;
   } else if (computerScore === 5){
     result.textContent = result.textContent + "\nYOU LOST";
+    humanScore = 0;
+    computerScore = 0;
   }
   output.appendChild(result);
-
 }
 
 const buttons = document.querySelectorAll("button");
