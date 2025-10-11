@@ -37,7 +37,7 @@ let computerScore = 0;
 // this function compares humanChoice with computerChoice and prints output such as : "paper beats rock!"
 // and increments the score of human or computer. whoever wins the round.
 function playRound(humanChoice, computerChoice) {
-  console.log(`human : ${humanChoice} ############# computer : ${computerChoice}`);
+  // console.log(`human : ${humanChoice} ############# computer : ${computerChoice}`);
   humanChoice = humanChoice.toLowerCase();
 
   if (humanChoice === "rock" && computerChoice === "scissors") {
@@ -55,25 +55,24 @@ function playRound(humanChoice, computerChoice) {
     alert("you lost this round");
     ++computerScore;
   }
-
-  console.log(`humanScore : ${humanScore} ############# computer : ${computerScore}`);
-}
-
-// create a function playgame that playRound s 5 times 
-function playGame() {
-  // // create two variables that will store values from getcomputerChoice and gethumanChoice. 
-  let humanSelection;
-  let computerSelection;
-
-  for (let i = 0; i < 5; i++) {
-    humanSelection = gethumanChoice();
-    computerSelection = getcomputerChoice();
-
-    playRound(humanSelection, computerSelection);
+  const output = document.querySelector("div");
+  const result = document.createElement("p");
+  result.textContent = `human : ${humanChoice} ############# computer : ${computerChoice}\n` +
+                      `humanScore : ${humanScore} ############# computerScore : ${computerScore}`;
+  if (humanScore === 5) {
+    result.textContent = result.textContent + "\nYOU WON";
+  } else if (computerScore === 5){
+    result.textContent = result.textContent + "\nYOU LOST";
   }
+  output.appendChild(result);
 
 }
 
-playGame();
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {playRound(button.id, getcomputerChoice())});
+});
+
 
 
