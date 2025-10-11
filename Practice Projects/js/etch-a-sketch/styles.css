@@ -4,6 +4,36 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f6f7fb;
+  background: indigo;
+  gap: 24px;
+}
+
+h1, p {
+  color: #f6f7fb;
+}
 #container {
-  background: blue;
+  display: flex;
+  align-items: center;
+  margin: 30px 20px;
+  flex-wrap: wrap;
+  box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+  border-radius: 12px;
+  width: 600px;
+  height: 600px;
+  background-color: #f6f7fb;
+}
+
+.square {
+  border: 1px solid rgba(0, 0, 0, .06);
+  /* display: flex; */
+  flex: 1;
+  transition: background-color .1s ease-in-out;
 }
