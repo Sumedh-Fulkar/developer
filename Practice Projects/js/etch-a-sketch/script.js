@@ -14,8 +14,8 @@ function createGrid (size) {
 // Set padding using percentages so 'size' squares fit on one line
     div.style.padding = `${100/size}%`;
     // ATTACH HOVER LISTENERS
-    div.addEventListener("mouseenter", function() {
-      this.style.backgroundColor = randomColor();
+    div.addEventListener("mouseenter", () => {
+      div.style.backgroundColor = randomColor();
     });
     container.appendChild(div);
   }
