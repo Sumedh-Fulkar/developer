@@ -81,7 +81,7 @@ h1 {
   flex-wrap: wrap;
   width: 270px;
   /* flex-grow: 1; */
-  padding: 5px;
+  padding: 5px 0 5px 0;
   /* border: 1px solid white; */
 }
 #numbers .digit, #numbers .equal {
@@ -110,7 +110,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 5px;
+  padding: 5px 0 5px 0;
   /* border: 1px solid white */
 }
 .op {
