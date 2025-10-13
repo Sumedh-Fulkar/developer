@@ -2,5 +2,129 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+body {
+  background-color: #111827;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    min-height: 100vh;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: rgb(129, 140, 248);
+}
+#calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boundary {
+  border: 2px solid #374151; /* Dark border */
+  padding: 10px;
+  background-color: #1f2937; /* Dark background */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+#display-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: #9ca3af;
+  height: 70px;
+}
+.display {
+  flex-grow: 1;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 2em;
+  color: #111827;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.clr {
+  width: 25%;/* Use 25% of the remaining space */
+  max-width: 75px;
+  height: 100%;
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: #ef4444; /* Red for Clear */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+.clr:hover {
+  background-color: #dc2626;
+}
+
+.expression {
+  display: flex;
+  margin-top: 10px;
+}
+#numbers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 270px;
+  /* flex-grow: 1; */
+  padding: 5px;
+  /* border: 1px solid white; */
+}
+#numbers .digit, #numbers .equal {
+  width: 75px;
+  height: 50px;
+  margin: 5px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #374151;
+  color: white;
+  transition: background-color 0.1s;
+}
+#numbers .digit:hover {
+  background-color: #4b5563;
+}
+#numbers .equal {
+  background-color: #10b981;
+}
+#numbers .equal:hover {
+  background-color: #059669;
+}
+
+#operation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+  /* border: 1px solid white */
+}
+.op {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  font-size: 1.95em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f59e0b;
+  color: white;
+  transition: background-color 0.1s;
+}
+.op:hover {
+  background-color: #d97706;
 }
