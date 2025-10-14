@@ -1,6 +1,11 @@
 // creating functions for the following items and testing them in your browser’s console:
 // add, subtract, multiply, divide
 
+const display = document.querySelector("#display");
+const buttons = document.querySelectorAll("button");
+const MAX_DIGITS = 12; // Max digits allowed on display
+
+
 function add (a, b) {
   return a + b;
 } 
@@ -15,33 +20,50 @@ function divide (a, b) {
 }
 
 // function operate that takes an operator and two numbers and then calls one of the above functions on the numbers.
+function roundResult(num) {
+    let resultStr = String(num);
+    if (resultStr.length > MAX_DIGITS) {
+        // Use toFixed for decimals, or toPrecision for very large/small numbers
+        if (resultStr.includes('.')) {
+          // Round to a maximum of 6 decimal places to prevent display overflow
+          return parseFloat(num.toFixed(6));
+        } else {
+          // For large numbers, use precision (may result in scientific notation)
+          return Number(num.toPrecision(MAX_DIGITS - 4));
+        }
+    }
+    return num;
+}
 
 function operate (num1, operator, num2) {
   num1 = Number(num1);
   num2 = Number(num2);
+  let result;
   switch (operator) {
     case "+":
-      return add(num1, num2);
+      result = add(num1, num2);
       break;
     case "-":
-      return subtract(num1, num2);
+      result = subtract(num1, num2);
       break;
     case "*":
-      return multiply(num1, num2);
+      result = multiply(num1, num2);
       break;
     case "/":
       if (num2 === 0) {
-        return "Error";
+        result = "Error";
       }
-      return divide(num1, num2);
+      result = divide(num1, num2);
       break;
   }
+  if (result === "Error") {
+    return "Error";
+  }
+  return roundResult(result);
 }
 
 // Create the functions that populate the display when you click the digit buttons. You should store the content of the display (the number) in a variable for use in the next step.
 
-const display = document.querySelector("#display");
-const buttons = document.querySelectorAll("button");
 
 let displayValue = "0";
 let waitingForFirstOperand = true;
@@ -150,6 +172,7 @@ buttons.forEach(button => {
       inputOperator(oper);
     } else if (btn.classList.contains('equal')) {
       handleOperation();
+      console.log(displayValue);
     } else if (btn.classList.contains('clr'))  {
       resetCalculator();
     }
